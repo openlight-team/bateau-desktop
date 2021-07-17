@@ -1,5 +1,6 @@
 const homepage = "https://www.google.com/";
 const ipc = require('electron').ipcRenderer;
+const fs = require('fs');
 
 function bateau_browse(url) {
     document.getElementById('browser').src = (url)
@@ -25,6 +26,24 @@ webview.addEventListener("page-title-updated", () => {
 
 webview.addEventListener("page-favicon-updated", (favicons) => {
     document.getElementById('favicon').src = favicons.favicons[0];
+});
+
+webview.addEventListener('did-start-loading', () => {
+    fs.readdir('user/css', (err, files) => {
+        files.forEach(fdr => {
+            if (fdr.includes(webview.url)) {
+                fs.readdir("user/css"+fdr, (err, files) => {
+                    files.forEach(file => {
+                        if (file.includes(".css")) {
+                            jQuery.get("user/css"+fdr+"/"+file, function(data) {
+                                webview.insertCSS(data);
+                            });
+                        }
+                    });
+                });
+            }
+        });
+    });
 });
 
 const isAbsoluteUrl = url => /^[a-z][a-z0-9+.-]*:/.test(url);
