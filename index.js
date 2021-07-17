@@ -4,16 +4,16 @@ let mainWindow;
 
 function createWindow() {
     const mainWindow = new BrowserWindow({
-      width: 1400,
-      height: 900,
-      frame: false,
-      webPreferences: {
+    width: 1400,
+    height: 900,
+    frame: false,
+    webPreferences: {
         nodeIntegration: true,
         contextIsolation: false,
         webviewTag: true
-      }
+    }
     })
-  
+
     mainWindow.loadFile('app.html')
     return mainWindow;
 }
