@@ -1,0 +1,199 @@
+/* @import "./fonts/Roboto-Regular.ttf"; */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background: #F9F9F9;
+    border-radius: 20px !important;
+}
+
+.controls {
+    margin-bottom: 9px;
+    height: 42px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Ripple effect */
+.ripple {
+    background-position: center;
+    transition: background 0.3s;
+}
+.ripple:hover {
+    background: #f9f9f9 radial-gradient(circle, transparent 1%, #fff 1%) center/15000%;
+}
+.ripple:active {
+    background-color: #e5e5e5;
+    background-size: 100%;
+    transition: background 0s;
+}
+
+.navigator {
+    width: calc(100vw - 18px);
+    height: calc(100vh - 72px);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.forward {
+    opacity: 50%;
+    transition: 0.3s;
+}
+
+#browser {
+    width: 100%;
+    height: 100%;
+    border: none; 
+}
+
+.control {
+    min-width: 42px;
+    height: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-right: 9px;
+    -webkit-app-region: no-drag !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #0c0d0f;
+    }
+    * {
+        color: #ffffff !important;
+        fill: #ffffff !important;
+    }
+    .control {
+        background-color: #0c0d0f;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .ripple:hover {
+        background: #191a1f radial-gradient(circle, transparent 1%, #fff 1%) center/15000%;
+    }
+    .ripple:active {
+        background-color: #2a2c31;
+    }
+    .navigator {
+        border: 1px solid #333;
+    }
+}
+
+.special {
+    position: absolute;
+    left: 9px;
+    top: 9px;
+    height: 42px;
+}
+
+.under_control {
+    width: 48px;
+    height: 100%;
+    border: none;
+    background-color: #00000000;
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/MaterialIcons-Regular.ttf'); /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url('../fonts/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    opacity: 72%;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+* {
+    font-family: 'Roboto';
+}
+
+#search {
+    padding: none;
+    font-size: 16px;
+    border: none;
+    background: none;
+    padding-left: 12px;
+    width: 50vw;
+}
+
+#search:focus {
+    outline: none;
+}
+
+#favicon {
+    width: 24px;
+    height: 24px;
+    border: none;
+    object-fit: cover;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+#logo {
+    height: 20px;
+    width: 18.12px;
+    fill: black;
+    fill-opacity: 0.72;
+}
+
+#window-controls {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    display: flex;
+    -webkit-app-region: no-drag !important;
+    cursor: default;
+}
+
+#window-controls span {
+    opacity: 48%;
+    margin-left: 24px;
+    user-select: none;
+}
+
+#window-controls span:hover {
+    opacity: 72%;
+    cursor: default;
+}
+
+.tab {
+    position: relative;
+    padding: 9px;
+}
