@@ -1,5 +1,4 @@
-import { app, BrowserWindow, ipcMain, Menu, MenuItem, webContents } from 'electron';
-import contextMenu from 'electron-context-menu';
+const { app, BrowserWindow, ipcMain, Menu, MenuItem, webContents } = require('electron');
 let mainWindow;
 
 function createWindow() {
@@ -7,6 +6,7 @@ function createWindow() {
     width: 1400,
     height: 900,
     frame: false,
+    icon: './assets/icon.png',
     webPreferences: {
         nodeIntegration: true,
         contextIsolation: false,
@@ -45,6 +45,3 @@ ipcMain.on('min', () => {
   //mainWindow is the reference to your window
   mainWindow.minimize()
 })
-
-const dispose = contextMenu();
-dispose();
