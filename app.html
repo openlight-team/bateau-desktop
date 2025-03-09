@@ -1,71 +1,71 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Bateau Desktop Beta</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body>
-        <div class="tab" id="tab1">
-            <div class="control special">
-                <svg id="logo" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3231 17.2211C12.5468 17.0847 12.8297 17.0841 13.0531 17.221C14.0669 17.8422 15.1898 18.1818 16.3127 18.1818H17.2181C17.719 18.1818 18.125 18.5888 18.125 19.0909C18.125 19.593 17.719 20 17.2181 20H16.3127C15.1317 20 13.9669 19.7243 12.8793 19.1959C12.7586 19.1373 12.6175 19.1371 12.4966 19.1952C10.3193 20.2412 7.80616 20.241 5.62907 19.1945C5.50893 19.1367 5.36892 19.1364 5.24874 19.1941C4.16088 19.716 2.99573 20 1.8144 20H0.909C0.408139 20 0.00211137 19.593 0.00211137 19.0909C0.00211137 18.5888 0.408139 18.1818 0.909 18.1818H1.8144C2.93732 18.1818 4.06025 17.8422 5.07401 17.221C5.29742 17.0841 5.5803 17.0847 5.80404 17.2211C7.83152 18.4566 10.2956 18.4566 12.3231 17.2211Z"/>
-                    <path d="M1.59618 15.6136C1.72549 16.0581 2.1357 16.3767 2.58888 16.2875C3.31985 16.1437 3.99323 15.8059 4.57421 15.36C5.0737 14.9767 5.80426 14.9767 6.30374 15.36C7.08486 15.9594 8.033 16.3636 9.06355 16.3636C10.0941 16.3636 11.0422 15.9594 11.8234 15.36C12.3229 14.9767 13.0534 14.9767 13.5529 15.36C14.1336 15.8056 14.8066 16.1434 15.5371 16.2873C15.9908 16.3767 16.4014 16.0574 16.5302 15.6123L18.0706 10.2909C18.1431 10.0545 18.125 9.8 18.0163 9.58182C17.9075 9.36364 17.7082 9.2 17.4726 9.12727L16.3127 8.74545L14.5004 8.15455L9.38795 6.47049C9.17723 6.40108 8.94988 6.40108 8.73915 6.47049L3.62669 8.15455L1.8144 8.74545L0.645474 9.12727C0.409876 9.2 0.210524 9.36364 0.101787 9.58182C-0.00695016 9.8 -0.0341344 10.0545 0.0474186 10.2909L1.59618 15.6136Z"/>
-                    <path d="M16.3127 8.74545V4.54545C16.3127 3.54545 15.4972 2.72727 14.5004 2.72727H11.782H6.34512H3.62669C2.62993 2.72727 1.8144 3.54545 1.8144 4.54545V8.74545L3.62669 8.15455V5.17045C3.62669 4.82528 3.90583 4.54545 4.25017 4.54545H13.8769C14.2213 4.54545 14.5004 4.82528 14.5004 5.17045V8.15455L16.3127 8.74545Z"/>
-                    <path d="M11.782 2.72727L11.782 1.04167C11.782 0.46637 11.3167 0 10.7428 0H7.38426C6.81036 0 6.34512 0.46637 6.34512 1.04167V2.72727H11.782Z"/>
-                </svg>
-            </div>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bateau Desktop - A modern web browser">
+    <title>Bateau Desktop</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/loading-animation.css">
+</head>
+<body>
+    <header class="titlebar" id="titlebar">
+        <div class="titlebar-logo">
+            <svg id="logo" xmlns="http://www.w3.org/2000/svg" aria-label="Bateau logo" role="img" width="18.12" height="20" viewBox="0 0 18.12 20">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.3231 17.2211C12.5468 17.0847 12.8297 17.0841 13.0531 17.221C14.0669 17.8422 15.1898 18.1818 16.3127 18.1818H17.2181C17.719 18.1818 18.125 18.5888 18.125 19.0909C18.125 19.593 17.719 20 17.2181 20H16.3127C15.1317 20 13.9669 19.7243 12.8793 19.1959C12.7586 19.1373 12.6175 19.1371 12.4966 19.1952C10.3193 20.2412 7.80616 20.241 5.62907 19.1945C5.50893 19.1367 5.36892 19.1364 5.24874 19.1941C4.16088 19.716 2.99573 20 1.8144 20H0.909C0.408139 20 0.00211137 19.593 0.00211137 19.0909C0.00211137 18.5888 0.408139 18.1818 0.909 18.1818H1.8144C2.93732 18.1818 4.06025 17.8422 5.07401 17.221C5.29742 17.0841 5.5803 17.0847 5.80404 17.2211C7.83152 18.4566 10.2956 18.4566 12.3231 17.2211Z"/>
+                <path d="M1.59618 15.6136C1.72549 16.0581 2.1357 16.3767 2.58888 16.2875C3.31985 16.1437 3.99323 15.8059 4.57421 15.36C5.0737 14.9767 5.80426 14.9767 6.30374 15.36C7.08486 15.9594 8.033 16.3636 9.06355 16.3636C10.0941 16.3636 11.0422 15.9594 11.8234 15.36C12.3229 14.9767 13.0534 14.9767 13.5529 15.36C14.1336 15.8056 14.8066 16.1434 15.5371 16.2873C15.9908 16.3767 16.4014 16.0574 16.5302 15.6123L18.0706 10.2909C18.1431 10.0545 18.125 9.8 18.0163 9.58182C17.9075 9.36364 17.7082 9.2 17.4726 9.12727L16.3127 8.74545L14.5004 8.15455L9.38795 6.47049C9.17723 6.40108 8.94988 6.40108 8.73915 6.47049L3.62669 8.15455L1.8144 8.74545L0.645474 9.12727C0.409876 9.2 0.210524 9.36364 0.101787 9.58182C-0.00695016 9.8 -0.0341344 10.0545 0.0474186 10.2909L1.59618 15.6136Z"/>
+                <path d="M16.3127 8.74545V4.54545C16.3127 3.54545 15.4972 2.72727 14.5004 2.72727H11.782H6.34512H3.62669C2.62993 2.72727 1.8144 3.54545 1.8144 4.54545V8.74545L3.62669 8.15455V5.17045C3.62669 4.82528 3.90583 4.54545 4.25017 4.54545H13.8769C14.2213 4.54545 14.5004 4.82528 14.5004 5.17045V8.15455L16.3127 8.74545Z"/>
+                <path d="M11.782 2.72727L11.782 1.04167C11.782 0.46637 11.3167 0 10.7428 0H7.38426C6.81036 0 6.34512 0.46637 6.34512 1.04167V2.72727H11.782Z"/>
+            </svg>
+        </div>
 
-            <div class="controls" id="controls" style="-webkit-app-region: drag">
-                <div id="window-controls">
-                    <span class="material-icons" onclick="ipc.send('min');">
-                        minimize
-                    </span>
-                    <span class="material-icons" onclick="ipc.send('max');">
-                        fullscreen
-                    </span>
-                    <span class="material-icons" onclick="window.close();">
-                        close
-                    </span>
-                </div>
+        <div class="tab-bar" id="tab-bar">
+            <button class="new-tab-button" id="new-tab-button" aria-label="New tab">
+                <span class="material-icons">add</span>
+            </button>
+        </div>
 
-                <div class="control">
-                    <button class="under_control ripple" onclick="bateau_back();">
-                        <span class="material-icons">
-                            arrow_back
-                        </span>
-                    </button>
-                    <button class="under_control ripple forward" id="forward" onclick="bateau_forward();">
-                        <span class="material-icons">
-                            arrow_forward
-                        </span>
-                    </button>
-                </div>
+        <div class="window-controls-container" id="window-controls-container">
+            <button class="window-control" id="minimize-button" aria-label="Minimize window" title="Minimize">
+                <span class="material-icons">minimize</span>
+            </button>
+            <button class="window-control" id="maximize-button" aria-label="Maximize window" title="Maximize">
+                <span class="material-icons">fullscreen</span>
+            </button>
+            <button class="window-control" id="close-button" aria-label="Close window" title="Close">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+    </header>
 
-                <div class="control">
-                    <img id="favicon">
-                    <input type="text" id="search" placeholder="Search or enter an URL">
-                    <button class="under_control ripple" onclick="bateau_reload();">
-                        <span class="material-icons">
-                            refresh
-                        </span>
-                    </button>
-                </div>
+    <nav class="browser-controls">
+        <div class="navigation-buttons">
+            <button class="nav-button ripple" id="back-button" aria-label="Go back">
+                <span class="material-icons">arrow_back</span>
+            </button>
+            <button class="nav-button ripple" id="forward-button" aria-label="Go forward">
+                <span class="material-icons">arrow_forward</span>
+            </button>
+        </div>
 
-                <div class="control">
-                    <button class="under_control ripple" onclick="bateau_devtools();">
-                        <span class="material-icons">
-                            code
-                        </span>
-                    </button>
-                </div>
-            </div>
-            <div class="navigator">
-                <webview id="browser"></webview>
-            </div>
-        
-        <script src="js/app.js" async defer></script>
-    </body>
+        <div class="address-bar">
+            <input type="text" id="url-input" placeholder="Search or enter an URL" aria-label="Address bar">
+            <button class="nav-button ripple" id="reload-button" aria-label="Reload page">
+                <span class="material-icons">refresh</span>
+            </button>
+        </div>
+
+        <div class="browser-actions">
+            <button class="nav-button ripple" id="devtools-button" aria-label="Developer tools">
+                <span class="material-icons">code</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="browser-container">
+    </main>
+
+    <script src="js/app.js" type="module"></script>
+</body>
 </html>

@@ -1,5 +1,5 @@
-const { app, BrowserWindow, ipcMain, Menu, MenuItem, webContents, WebView } = require('electron');
-const contextMenu = require('electron-context-menu');
+import { app, BrowserWindow, ipcMain, Menu, MenuItem, webContents } from 'electron';
+import contextMenu from 'electron-context-menu';
 let mainWindow;
 
 function createWindow() {

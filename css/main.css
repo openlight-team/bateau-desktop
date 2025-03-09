@@ -1,124 +1,75 @@
-/* @import "./fonts/Roboto-Regular.ttf"; */
-
-body {
-    width: 100vw;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    background: #F9F9F9;
-    border-radius: 20px !important;
-}
-
-.controls {
-    margin-bottom: 9px;
-    height: 42px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-/* Ripple effect */
-.ripple {
-    background-position: center;
-    transition: background 0.3s;
-}
-.ripple:hover {
-    background: #f9f9f9 radial-gradient(circle, transparent 1%, #fff 1%) center/15000%;
-}
-.ripple:active {
-    background-color: #e5e5e5;
-    background-size: 100%;
-    transition: background 0s;
-}
-
-.navigator {
-    width: calc(100vw - 18px);
-    height: calc(100vh - 72px);
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #fff;
-}
-
-.forward {
-    opacity: 50%;
-    transition: 0.3s;
-}
-
-#browser {
-    width: 100%;
-    height: 100%;
-    border: none; 
-}
-
-.control {
-    min-width: 42px;
-    height: 100%;
-    background-color: #FFFFFF;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    transition: 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    margin-right: 9px;
-    -webkit-app-region: no-drag !important;
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #0c0d0f;
-    }
-    * {
-        color: #ffffff !important;
-        fill: #ffffff !important;
-    }
-    .control {
-        background-color: #0c0d0f;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-    .ripple:hover {
-        background: #191a1f radial-gradient(circle, transparent 1%, #fff 1%) center/15000%;
-    }
-    .ripple:active {
-        background-color: #2a2c31;
-    }
-    .navigator {
-        border: 1px solid #333;
-    }
-}
-
-.special {
-    position: absolute;
-    left: 9px;
-    top: 9px;
-    height: 42px;
-}
-
-.under_control {
-    width: 48px;
-    height: 100%;
-    border: none;
-    background-color: #00000000;
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../fonts/SpaceGrotesk-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Material Icons';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/MaterialIcons-Regular.ttf'); /* For IE6-8 */
-    src: local('Material Icons'),
-      local('MaterialIcons-Regular'),
-      url('../fonts/MaterialIcons-Regular.ttf') format('truetype');
+    src: url('../fonts/MaterialIcons-Regular.ttf') format('truetype');
+    font-display: block;
+}
+
+:root {
+    --primary-bg: #F9F9F9;
+    --secondary-bg: #FFFFFF;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --text-color: rgba(0, 0, 0, 0.87);
+    --icon-color: rgba(0, 0, 0, 0.72);
+    --hover-bg: #f1f1f1;
+    --active-bg: #e5e5e5;
+    --shadow-color: rgba(0, 0, 0, 0.25);
+    --border-radius: 40px;
+    --transition-speed: 0.3s;
+    --titlebar-height: 36px;
+    --browser-controls-height: 36px;
+    --tab-height: 28px;
+    --tab-border-radius: 10px;
+    --tab-active-color: var(--secondary-bg);
+    --tab-inactive-color: rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-bg: #0c0d0f;
+        --secondary-bg: #1a1b1f;
+        --border-color: rgba(255, 255, 255, 0.15);
+        --text-color: rgba(255, 255, 255, 0.87);
+        --icon-color: rgba(255, 255, 255, 0.72);
+        --hover-bg: #2a2c31;
+        --active-bg: #3a3c41;
+        --shadow-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text-color);
+    user-select: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--tab-active-color);
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
 }
 
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
-    font-size: 24px;  /* Preferred icon size */
+    font-size: 24px;
     display: inline-block;
     line-height: 1;
     text-transform: none;
@@ -126,74 +77,274 @@ body {
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-    opacity: 72%;
-  
-    /* Support for all WebKit browsers. */
+    opacity: 0.72;
     -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
     text-rendering: optimizeLegibility;
-  
-    /* Support for Firefox. */
     -moz-osx-font-smoothing: grayscale;
-  
-    /* Support for IE. */
     font-feature-settings: 'liga';
 }
 
-* {
-    font-family: 'Roboto';
+/* Titlebar styling */
+.titlebar {
+    height: auto;
+    background-color: var(--primary-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 9px;
+    -webkit-app-region: drag;
+    position: relative;
 }
 
-#search {
-    padding: none;
-    font-size: 16px;
-    border: none;
-    background: none;
-    padding-left: 12px;
-    width: 50vw;
-}
-
-#search:focus {
-    outline: none;
-}
-
-#favicon {
-    width: 24px;
-    height: 24px;
-    border: none;
-    object-fit: cover;
-    margin-left: 10px;
-    border-radius: 5px;
+.titlebar-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    -webkit-app-region: no-drag;
 }
 
 #logo {
     height: 20px;
     width: 18.12px;
-    fill: black;
-    fill-opacity: 0.72;
+    fill: var(--icon-color);
 }
 
-#window-controls {
-    position: absolute;
-    top: 18px;
-    right: 24px;
+.window-controls-container {
     display: flex;
-    -webkit-app-region: no-drag !important;
-    cursor: default;
+    align-items: center;
+    -webkit-app-region: no-drag;
 }
 
-#window-controls span {
-    opacity: 48%;
+.window-control {
+    background: transparent;
+    border: none;
+    cursor: pointer;
     margin-left: 24px;
-    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.48;
+    transition: opacity var(--transition-speed);
 }
 
-#window-controls span:hover {
-    opacity: 72%;
-    cursor: default;
+.window-control:hover {
+    opacity: 0.72;
+}
+
+.browser-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 9px;
+    -webkit-app-region: no-drag;
+}
+
+.navigation-buttons, .browser-actions {
+    display: flex;
+    align-items: center;
+}
+
+.address-bar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin: 0 9px;
+    height: 100%;
+    overflow: hidden;
+}
+
+#url-input {
+    flex: 1;
+    font-size: 15px;
+    border: none;
+    background: none;
+    padding-left: 15px;
+    height: 100%;
+    color: var(--text-color);
+}
+
+#url-input:focus {
+    outline: none;
+}
+
+.nav-button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed);
+}
+
+.nav-button:hover {
+    background-color: var(--hover-bg);
+}
+
+.nav-button:active {
+    background-color: var(--active-bg);
+}
+
+#forward-button {
+    opacity: 0.5;
+    transition: opacity var(--transition-speed);
+}
+
+.ripple {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+}
+
+.ripple:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+}
+
+.ripple:active:after {
+    transform: scale(0, 0);
+    opacity: .3;
+    transition: 0s;
+}
+
+.tab-bar {
+    display: flex;
+    height: calc(var(--tab-height) + 8px);
+    background-color: var(--primary-bg);
+    padding: 0 9px;
+    overflow-x: auto;
+    white-space: nowrap;
+    flex: 1;
+    scrollbar-width: thin;
+    margin-top: 6px;
+    -webkit-app-region: drag;
+}
+
+.tab-bar::-webkit-scrollbar {
+    display: none;
 }
 
 .tab {
+    display: flex;
+    align-items: center;
+    height: calc(var(--tab-height) + 8px);
+    min-width: 180px;
+    max-width: 240px;
+    background-color: var(--tab-inactive-color);
+    margin-right: 4px;
+    border-radius: var(--tab-border-radius) var(--tab-border-radius) 0 0;
+    padding: 0 12px;
+    cursor: pointer;
     position: relative;
-    padding: 9px;
+    overflow: hidden;
+    transition: background-color var(--transition-speed);
+    -webkit-app-region: no-drag;
+}
+
+.tab.active {
+    background-color: var(--tab-active-color);
+}
+
+.tab-favicon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.tab-title {
+    flex: 1;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tab-close {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-left: 8px;
+    opacity: 0.6;
+    transition: opacity var(--transition-speed), background-color var(--transition-speed);
+}
+
+.tab-close:hover {
+    opacity: 1;
+    background-color: var(--hover-bg);
+}
+
+.tab-close .material-icons {
+    font-size: 16px;
+}
+
+.new-tab-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: calc(var(--tab-height) + 8px);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed);
+    -webkit-app-region: no-drag;
+}
+
+.new-tab-button:hover {
+    background-color: var(--hover-bg);
+}
+
+.browser-container {
+    flex: 1;
+    margin: 0 7px 7px 7px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--secondary-bg);
+    position: relative;
+}
+
+.webview-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.webview-container.active {
+    display: block;
+}
+
+.webview {
+    width: 100%;
+    height: 100%;
+    border: none;
+    user-select: auto;
 }
