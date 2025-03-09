@@ -138,7 +138,7 @@ const attachWebviewListeners = (webview, tabId) => {
     });
     
     webview.addEventListener('did-start-loading', () => {
-        injectCustomCSS(webview);
+        // injectCustomCSS(webview);
         
         const faviconElement = document.querySelector(`#tab-favicon-${tabId}`);
         if (faviconElement) {
@@ -190,34 +190,34 @@ const attachWebviewListeners = (webview, tabId) => {
     });
 };
 
-const injectCustomCSS = (webview) => {
-    try {
-        const targetWebview = webview || getActiveWebview();
-        if (!targetWebview || !targetWebview.getURL()) return;
+// const injectCustomCSS = (webview) => {
+//     try {
+//         const targetWebview = webview || getActiveWebview();
+//         if (!targetWebview || !targetWebview.getURL()) return;
         
-        const webviewUrl = targetWebview.getURL();
+//         const webviewUrl = targetWebview.getURL();
         
-        fs.readdir('user/css', (err, files) => {
-            if (err) return;
-            files.forEach(fdr => {
-                if (fdr.includes(webviewUrl)) {
-                    fs.readdir(`user/css/${fdr}`, (err, cssFiles) => {
-                        if (err) return;
-                        cssFiles.forEach(file => {
-                            if (file.endsWith('.css')) {
-                                fs.readFile(`user/css/${fdr}/${file}`, 'utf8', (err, data) => {
-                                    if (!err) targetWebview.insertCSS(data);
-                                });
-                            }
-                        });
-                    });
-                }
-            });
-        });
-    } catch (error) {
-        console.error('Error injecting custom CSS:', error);
-    }
-};
+//         fs.readdir('user/css', (err, files) => {
+//             if (err) return;
+//             files.forEach(fdr => {
+//                 if (fdr.includes(webviewUrl)) {
+//                     fs.readdir(`user/css/${fdr}`, (err, cssFiles) => {
+//                         if (err) return;
+//                         cssFiles.forEach(file => {
+//                             if (file.endsWith('.css')) {
+//                                 fs.readFile(`user/css/${fdr}/${file}`, 'utf8', (err, data) => {
+//                                     if (!err) targetWebview.insertCSS(data);
+//                                 });
+//                             }
+//                         });
+//                     });
+//                 }
+//             });
+//         });
+//     } catch (error) {
+//         console.error('Error injecting custom CSS:', error);
+//     }
+// };
 
 const browserActions = {
     navigate(url) {
