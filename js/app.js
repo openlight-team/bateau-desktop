@@ -151,7 +151,7 @@ const attachWebviewListeners = (webview, tabId) => {
             faviconElement.src = '';
         }
 
-        elements.reloadButton.innerHTML = '<span class="material-icons">close</span>';
+        elements.reloadButton.innerHTML = '<span class="material-icons">&#60312;</span>';
         elements.reloadButton.setAttribute('aria-label', 'Stop loading');
         elements.reloadButton.removeEventListener('click', browserActions.reload);
         elements.reloadButton.addEventListener('click', browserActions.stop);
@@ -167,7 +167,7 @@ const attachWebviewListeners = (webview, tabId) => {
             }
         }
 
-        elements.reloadButton.innerHTML = '<span class="material-icons">refresh</span>';
+        elements.reloadButton.innerHTML = '<span class="material-icons md-20">&#62788;</span>';
         elements.reloadButton.setAttribute('aria-label', 'Reload page');
         elements.reloadButton.removeEventListener('click', browserActions.stop);
         elements.reloadButton.addEventListener('click', browserActions.reload);
@@ -288,7 +288,7 @@ const browserActions = {
             <img class="tab-favicon" id="tab-favicon-${tabId}" src="default-favicon.png" alt="">
             <span class="tab-title" id="tab-title-${tabId}">New Tab</span>
             <div class="tab-close">
-                <span class="material-icons">close</span>
+                <span class="material-icons">&#60312;</span>
             </div>
         `;
         
